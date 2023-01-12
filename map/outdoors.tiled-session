@@ -1,0 +1,69 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Tilesets/map.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "Tilesets/ExtraTileset.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tilesets/GroundTiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tilesets/TilesetFloor.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tilesets/TilesetNature.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tilesets/WaterTileset.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tilesets/map.tmx": {
+            "scale": 2.7213541666666665,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 240.32153110047847,
+                "y": 175.28038277511962
+            }
+        }
+    },
+    "last.exportedFilePath": "/Users/rileyjones/Documents/Coding/Javascript/react-firebase-game/map/Tilesets",
+    "last.imagePath": "/Users/rileyjones/Downloads/NinjaAdventure/Backgrounds/Tilesets",
+    "map.height": 20,
+    "map.lastUsedExportFilter": "JavaScript map files (*.js)",
+    "map.lastUsedFormat": "tmx",
+    "map.renderOrder": null,
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 30,
+    "openFiles": [
+        "Tilesets/TilesetFloor.tsx",
+        "Tilesets/TilesetNature.tsx",
+        "Tilesets/WaterTileset.tsx",
+        "Tilesets/ExtraTileset.tsx",
+        "Tilesets/map.tmx"
+    ],
+    "project": "outdoors.tiled-project",
+    "recentFiles": [
+        "Tilesets/TilesetFloor.tsx",
+        "Tilesets/TilesetNature.tsx",
+        "Tilesets/WaterTileset.tsx",
+        "Tilesets/ExtraTileset.tsx",
+        "Tilesets/map.tmx",
+        "Tilesets/GroundTiles.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
