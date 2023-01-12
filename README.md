@@ -1,70 +1,15 @@
-# Getting Started with Create React App
+# The Dino Socialite
+![favicon](https://user-images.githubusercontent.com/40313184/212091394-c62e5254-0977-48a4-ba9e-93d31b9ab01f.png)
+![green_dino](https://user-images.githubusercontent.com/40313184/212091474-1adfdfd3-f22e-4c22-a80e-232b28a80a7f.png)
+![blue_dino](https://user-images.githubusercontent.com/40313184/212091497-4adbe42c-3128-4e99-bf2f-29819d85016b.png)
+![yellow_dino](https://user-images.githubusercontent.com/40313184/212091521-f5af9ef4-adb9-4c6e-9a82-0dee6af2e0b7.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Play at: https://react-firebase-game-10718.web.app
 
-## Available Scripts
 
-In the project directory, you can run:
+The program uses React to render the components and managae the state of the game. THe netowrking is performed by firebase, utilising realtime database and hosting features.
 
-### `npm start`
+In hindsite, React is a difficult tool for game developement, managing when renders occur is a learning curve. While realtime databases are not ideal for gaming, firebase offers an easy solution ofr reasonable results.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The Dino Socialite is a game intended to progress the species through conversation. You can play online with your friends and share meaningful words. \\
+The artwork for the dinosaurs was by Twitter: @ScissorMarks
