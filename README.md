@@ -6,10 +6,11 @@
 
 ## Play at: https://react-firebase-game-10718.web.app
 
+The Dino Socialite is a game intended to progress the species through conversation. You can play online with your friends and share meaningful words.
 
 The program uses React to render the components and managae the state of the game. THe netowrking is performed by firebase, utilising realtime database and hosting features.
 
-In hindsite, React is a difficult tool for game developement, managing when renders occur is a learning curve. While realtime databases are not ideal for gaming, firebase offers an easy solution ofr reasonable results.
+In hindsite, React is a difficult tool for game developement, managing when rendering occurs is a learning curve. While realtime databases are not ideal for gaming, firebase offers an easy solution for reasonable results.
 
-The Dino Socialite is a game intended to progress the species through conversation. You can play online with your friends and share meaningful words. \\
+
 The artwork for the dinosaurs was by Twitter: @ScissorMarks
