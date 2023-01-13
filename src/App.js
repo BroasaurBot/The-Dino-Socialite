@@ -171,7 +171,15 @@ function App() {
       <div className="App overflow-clip w-[820px] p-[10px] bg-gray-200">
         <div className='flex flex-col justify-center items-center'>
           <h1 className='text-3xl mt-3 font-bold font-mono'>The Dino Socialite</h1>
-          <p className='text-lg mb-3 font-semibold font-sans text-red-900'>Have a chat and progress the species</p>
+
+          {Object.keys(players).length > 1 && 
+            <p className='text-lg mb-3 font-semibold font-sans text-red-900'>
+              Have a chat and progress the species
+            </p>}
+          {Object.keys(players).length <= 1 && 
+            <p className='text-lg mb-3 font-semibold font-sans text-red-900'>
+              You look a bit lonely, invite a friend and get talking
+            </p>}
         </div>
         <p>Might take a few refreshes</p>
         <div className='relative w-[800px] h-[533px]'>
@@ -205,7 +213,7 @@ function App() {
               </form>
               <button className='border-2 w-[10%] border-black rounded-xl hover:bg-gray-600'
                 onClick={() => sendMessage()}>
-                  Ok!
+                  Send!
               </button>
             </div>
           </div>
