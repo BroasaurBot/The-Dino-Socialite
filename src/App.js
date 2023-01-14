@@ -3,6 +3,7 @@ import { auth, database } from './firebase'
 import { useEffect, useState, useRef } from 'react'
 import { onDisconnect, ref, set, onValue, onChildAdded } from 'firebase/database';
 import { KeyPressListener } from './KeyPressListener';
+import MobileControl from './MobileControl';
 
 function App() {
   const defaultGrid = 16
@@ -180,6 +181,10 @@ function App() {
         )
     }
 
+    const move = (x, y) => {
+      console.log(x, y)
+    }
+
   return (
     <div className='flex flex-col items-center'>
       <div className="bg-gray-200 p-3 w-screen flex flex-col items-center">
@@ -196,8 +201,8 @@ function App() {
             <p className='text-lg mb-3 font-semibold font-sans text-red-900'>
               You look a bit lonely, invite a friend and get talking
             </p>}
-          <p className='self-start'>Might take a few refreshes</p>
         </div>
+        <p className=''>Might take a few refreshes</p>
 
 
         {/*This is the screen of the game */}
@@ -205,6 +210,8 @@ function App() {
           {gameReady && renderPlayers()}
           <img className='z-0 w-full' src={'/map_ground.png'} alt='ground'></img>
           <img className='absolute top-0 z-10 w-full' src={'/map_trees.png'} alt='ground'></img>
+
+          <div className='absolute left-8 bottom-24 sm:bottom-24 md:bottom-14'><MobileControl handleMove={handleMove} /></div>
 
           {/* This is the input section */}
           <div className='w-full bg-slate-700 flex flex-row justify-around p-3'>
@@ -226,7 +233,7 @@ function App() {
             <div className='bg-slate-300 w-[60%]'>
               Message
               <div className='flex flex-row w-full'>
-                <form classname='grow' onSubmit={(event) => event.preventDefault()}>
+                <form className='grow' onSubmit={(event) => event.preventDefault()}>
                   <textarea className='w-full' rows='2' cols='40'
                     type='text' value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
                 </form>
