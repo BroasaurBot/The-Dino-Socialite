@@ -182,13 +182,16 @@ function App() {
             </p>}
         </div>
         <p>Might take a few refreshes</p>
+
+        {/*This is the screen of the game */}
         <div className='relative w-[800px] h-[533px]'>
           {gameReady && renderPlayers()}
           <img className='absolute z-0 w-full' src={'/map_ground.png'} alt='ground'></img>
           <img className='absolute z-[2] w-full' src={'/map_trees.png'} alt='ground'></img>
         </div>
+        {/* End of the screen */}
 
-        <div className='w-full h-[120px] bg-slate-700 flex flex-row justify-around p-3'>
+        <div className='w-full h-[100px] bg-slate-700 flex flex-row justify-around p-3'>
           <div className= 'bg-slate-300 w-[35%]'>
             <h1>Username</h1>
             <div className=''>
@@ -208,7 +211,7 @@ function App() {
             Message
             <div className='flex flex-row w-full'>
               <form classname='grow' onSubmit={(event) => event.preventDefault()}>
-                <textarea className='w-full' rows='3' cols='40'
+                <textarea className='w-full' rows='2' cols='40'
                   type='text' value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
               </form>
               <button className='border-2 w-[10%] border-black rounded-xl hover:bg-gray-600'
