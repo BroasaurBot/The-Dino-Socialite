@@ -6,22 +6,22 @@ function MobileControl({handleMove}) {
         {
             pos: 'col-start-2 col-span-1',
             text: 'Up',
-            move: () => {handleMove(0, -1)}
+            move: () => {handleMove(0, -2)}
         },
         {
             pos: 'row-start-2 col-start-1 col-span-1',
             text: 'Left',
-            move: () => {handleMove(-1, 0)}
+            move: () => {handleMove(-2, 0)}
         },
         {
             pos: 'row-start-2 col-start-3 col-span-1',
             text: 'Right',
-            move: () => {handleMove(1, 0)}
+            move: () => {handleMove(2, 0)}
         },
         {
             pos: 'col-start-2 row-start-3 col-span-1',
             text: 'Down',
-            move: () => {handleMove(0, 1)}
+            move: () => {handleMove(0, 2)}
         }
     ]
 
