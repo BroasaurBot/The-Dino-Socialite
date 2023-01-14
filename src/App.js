@@ -26,6 +26,8 @@ function App() {
           setGridSize((window.innerWidth / 800) * defaultGrid);
         }
       }
+
+    resizeGrid()
     window.addEventListener('resize' , resizeGrid)
     return () => {window.removeEventListener('resize', resizeGrid)}
   })
@@ -211,7 +213,7 @@ function App() {
           <img className='z-0 w-full' src={'/map_ground.png'} alt='ground'></img>
           <img className='absolute top-0 z-10 w-full' src={'/map_trees.png'} alt='ground'></img>
 
-          <div className='absolute left-8 bottom-24 sm:bottom-24 md:bottom-14'><MobileControl handleMove={handleMove} /></div>
+          <div className='absolute left-2 sm:left-4 md:left-6 bottom-[7rem] md:bottom-[3rem]'><MobileControl handleMove={handleMove} /></div>
 
           {/* This is the input section */}
           <div className='w-full bg-slate-700 flex flex-row justify-around p-3'>

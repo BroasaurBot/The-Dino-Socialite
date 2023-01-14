@@ -32,7 +32,7 @@ function MobileControl({handleMove}) {
             {stickLayout.map((item, index) => {
                 return (
                     <button key={index} className={`z-20 flex flex-col items-center justify-center
-                        ${item.pos} opacity-70 bg-slate-500 w-full rounded-full p-3`}
+                        ${item.pos} opacity-70 bg-slate-500 w-full rounded-full p-1 sm:p-2 md:p-3`}
                         onClick={() => item.move()}>
                         {item.text}
                     </button>
