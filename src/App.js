@@ -3,17 +3,31 @@ import { auth, database } from './firebase'
 import { useEffect, useState, useRef } from 'react'
 import { onDisconnect, ref, set, onValue, onChildAdded } from 'firebase/database';
 import { KeyPressListener } from './KeyPressListener';
-import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 function App() {
+  const defaultGrid = 16
 
   const [gameReady, setReady] = useState(false)
   const [players, setPlayers] = useState({});
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  const [gridSize, setGridSize] = useState(defaultGrid);
 
   let playerRef = useRef("");
   let playerId = useRef("");
+
+
+  useEffect(() => {
+    const resizeGrid = () => {
+        if (window.innerWidth > 800) {
+          setGridSize(defaultGrid);
+        } else {
+          setGridSize((window.innerWidth / 800) * defaultGrid);
+        }
+      }
+    window.addEventListener('resize' , resizeGrid)
+    return () => {window.removeEventListener('resize', resizeGrid)}
+  })
 
 
   useEffect(()=> {
@@ -28,8 +42,8 @@ function App() {
         username: name,
         direction: "right",
         colour: randomColour(),
-        x: (Math.floor(Math.random() * 20)),
-        y: (Math.floor(Math.random() * 20)),
+        x: (Math.floor(Math.random() * 20) + 2),
+        y: (Math.floor(Math.random() * 20) + 2),
         text: ""
       })
 
@@ -49,7 +63,6 @@ function App() {
   useEffect(() => {
       const allPlayersRef = ref(database, 'players');
       onValue(allPlayersRef, (snapshot) => {
-          console.log("Change")
           setPlayers({...snapshot.val()});
       })
   }, [])
@@ -143,9 +156,10 @@ function App() {
             renders.map((player, index) => {
                 let info = player[1];
                 return(
-                    <div className={`z-[1] flex flex-col w-[30px] h-[30px] absolute
-                      transition-all duration-200 ease-in-out `}
-                        style={{transform: `translate(${info.x*12}px, ${info.y*12}px) `}}
+                    <div className={`z-[1] flex flex-col w-[32px] h-[32px] absolute
+                      transition-all duration-200 ease-in-out
+                      `}
+                        style={{transform: `translate(${info.x*gridSize}px, ${info.y*gridSize}px) scale(${gridSize/defaultGrid})`}}
                          key={index}>
 
                         {info.text == "" &&
@@ -159,7 +173,7 @@ function App() {
                           {info.text}
                         </p>}
                         <img src={`${info.colour}`} alt='character' 
-                            className={` 
+                            className={` w-full h-full 
                             ${info.direction === "left" ? `scale-x-[-1]` : ""}`}></img>
                     </div>
             )})
@@ -167,8 +181,10 @@ function App() {
     }
 
   return (
-    <div className='w-full flex flex-col items-center'>
-      <div className="App overflow-clip w-[820px] p-[10px] bg-gray-200">
+    <div className='flex flex-col items-center'>
+      <div className="bg-gray-200 p-3 w-screen flex flex-col items-center">
+
+        {/*Title and instructions */}
         <div className='flex flex-col justify-center items-center'>
           <h1 className='text-3xl mt-3 font-bold font-mono'>The Dino Socialite</h1>
 
@@ -180,47 +196,50 @@ function App() {
             <p className='text-lg mb-3 font-semibold font-sans text-red-900'>
               You look a bit lonely, invite a friend and get talking
             </p>}
+          <p className='self-start'>Might take a few refreshes</p>
         </div>
-        <p>Might take a few refreshes</p>
+
 
         {/*This is the screen of the game */}
-        <div className='relative w-[800px] h-[533px]'>
+        <div className='relative max-w-[800px] max-h-[533px] w-full mb-[120px]'>
           {gameReady && renderPlayers()}
-          <img className='absolute z-0 w-full' src={'/map_ground.png'} alt='ground'></img>
-          <img className='absolute z-[2] w-full' src={'/map_trees.png'} alt='ground'></img>
+          <img className='z-0 w-full' src={'/map_ground.png'} alt='ground'></img>
+          <img className='absolute top-0 z-10 w-full' src={'/map_trees.png'} alt='ground'></img>
+
+          {/* This is the input section */}
+          <div className='w-full bg-slate-700 flex flex-row justify-around p-3'>
+            <div className= 'bg-slate-300 w-[35%]'>
+              <h1>Username</h1>
+              <div className=''>
+                <form className='flex flex-col' onSubmit={(event) => event.preventDefault()}>
+                  <input type='text' 
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}></input>
+                </form>
+                <button className='border-2 w-full border-black rounded-xl hover:bg-gray-600'
+                  onClick={() => changeName()}>
+                    Ok!
+                  </button>
+              </div>
+            </div>
+
+            <div className='bg-slate-300 w-[60%]'>
+              Message
+              <div className='flex flex-row w-full'>
+                <form classname='grow' onSubmit={(event) => event.preventDefault()}>
+                  <textarea className='w-full' rows='2' cols='40'
+                    type='text' value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
+                </form>
+                <button className='border-2 w-[10%] border-black rounded-xl hover:bg-gray-600'
+                  onClick={() => sendMessage()}>
+                    Send!
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
         {/* End of the screen */}
 
-        <div className='w-full h-[100px] bg-slate-700 flex flex-row justify-around p-3'>
-          <div className= 'bg-slate-300 w-[35%]'>
-            <h1>Username</h1>
-            <div className=''>
-              <form className='flex flex-col' onSubmit={(event) => event.preventDefault()}>
-                <input type='text' 
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}></input>
-              </form>
-              <button className='border-2 w-full border-black rounded-xl hover:bg-gray-600'
-                onClick={() => changeName()}>
-                  Ok!
-                </button>
-            </div>
-          </div>
-
-          <div className='bg-slate-300 w-[60%]'>
-            Message
-            <div className='flex flex-row w-full'>
-              <form classname='grow' onSubmit={(event) => event.preventDefault()}>
-                <textarea className='w-full' rows='2' cols='40'
-                  type='text' value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
-              </form>
-              <button className='border-2 w-[10%] border-black rounded-xl hover:bg-gray-600'
-                onClick={() => sendMessage()}>
-                  Send!
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
